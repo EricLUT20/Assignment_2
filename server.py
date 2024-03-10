@@ -89,7 +89,7 @@ def openSearchWikipedia(topicName):
         url = f"https://en.wikipedia.org/w/api.php?action=opensearch&search={topicName}&limit=1&namespace=0&format=json"
         
         # Sending the request and getting the response
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)  # Set timeout to 10 seconds
 
         # Parsing the response and returning the URL of the first result
         data = response.json()
